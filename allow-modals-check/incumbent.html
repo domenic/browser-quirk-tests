@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Incumbent page</title>
+
+<iframe src="current.html" id="c" sandbox="allow-same-origin allow-scripts"></iframe>
+<iframe src="relevant1.html" id="r1"></iframe>
+<iframe src="relevant2.html" id="r2" sandbox="allow-same-origin allow-scripts"></iframe>
+
+<script>
+  const current = document.querySelector("#c").contentWindow;
+  const relevant1 = document.querySelector("#r1").contentWindow;
+  const relevant2 = document.querySelector("#r2").contentWindow;
+
+  window.test1 = () => {
+    current.alert.call(relevant1, "Hello 1");
+  };
+
+  window.test2 = () => {
+    current.alert.call(relevant2, "Hello 2");
+  };
+</script>

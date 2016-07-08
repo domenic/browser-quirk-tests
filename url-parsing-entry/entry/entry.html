@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<title>Entry page</title>
+
+<style>
+textarea {
+    width: 500px;
+    height: 100px;
+}
+</style>
+
+<h1>You are looking at the entry page</h1>
+
+<iframe src="../incumbent/incumbent.html"></iframe>
+
+<h2>window.open()</h2>
+
+<button onclick="frames[0].testWindowOpen()">Test window.open()</button>
+
+<p>Click the above button and look at the URL of the newly-opened tab. This will reveal what is used to parse URLs in window.open()</p>
+
+
+<h2>history.pushState()</h2>
+
+<button onclick="pushStateResult.value = frames[0].testPushState()">Test pushState()</button>
+
+<p>Click the above button and check the below text area to see what the resulting URL is. This will reveal what is used to parse URLs in pushState()</p>
+
+<textarea id="pushStateResult"></textarea>
+
+<p>You should probably reload the page after this to reset things before running further tests.</p>
+
+
+<h2>history.replaceState()</h2>
+
+<button onclick="replaceStateResult.value = frames[0].testReplaceState()">Test replaceState()</button>
+
+<p>Click the above button and check the below text area to see what the resulting URL is. This will reveal what is used to parse URLs in replaceState()</p>
+
+<textarea id="replaceStateResult"></textarea>
+
+<p>You should probably reload the page after this to reset things before running further tests.</p>
+
+<!--
+<h2>new WebSocket()</h2>
+
+<button onclick="frames[0].testWebSocket()">Test new WebSocket()</button>
+
+<p>Click the above button and use your browser network console to see what referrer was sent in the request. That indicates what fetch client was used for the request.</p>
+
+Oops, it turns out browsers don't send Referrer headers
+-->

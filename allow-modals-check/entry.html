@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<title>Entry page</title>
+
+<iframe src="starter" sandbox="allow-same-origin allow-scripts"></iframe>
+<iframe src="incumbent.html"></iframe>
+
+<button onclick="frames[1].test1()">Test 1</button>
+<button onclick="frames[1].test2()">Test 2</button>
+
+<p>Press all three buttons in sequence:</p>
+
+<dl>
+<dt>Hello 0, Hello 1, Hello 2</dt>
+<dd>Your browser does not implement the sandboxing of modals, so isn't relevant to this test</dd>
+
+<dt>Hello 1 only</dt>
+<dd>Your browser uses the relevant settings object on which the alert() method is being called to determine sandboxing</dd>
+
+<dt>Hello 1, Hello 2</dt>
+<dd>Your browser uses the current settings object (during the alert() method call) to determine sandboxing</dd>
+
+<dt>Anything else</dt>
+<dd>Something is broken with this test case :(</dd>
+<dl>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Incumbent page</title>
+
+<iframe src="../current/current.html" id="c"></iframe>
+
+<script>
+  const current = document.querySelector("#c").contentWindow;
+
+  window.hello = () => {
+    new current.Worker("worker.js");
+  };
+</script>

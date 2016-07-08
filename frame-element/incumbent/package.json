@@ -1,0 +1,11 @@
+{
+  "name": "frame-element-incumbent",
+  "version": "1.0.0",
+  "private": "true",
+  "dependencies": {
+    "ecstatic": "^1.4.1"
+  },
+  "scripts": {
+    "start": "ecstatic"
+  }
+}

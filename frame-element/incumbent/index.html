@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Incumbent page</title>
+
+<h1>You are looking at the incumbent page</h1>
+
+<script>
+"use strict";
+document.domain = "now.sh";
+</script>
+
+<iframe src="https://frame-element-current-kwekmtncpb.now.sh/" id="c"></iframe>
+<iframe src="https://frame-element-relevant-qwwigdyhww.now.sh/" id="r"></iframe>
+
+<script>
+  const current = document.querySelector("#c").contentWindow;
+  const relevant = document.querySelector("#r").contentWindow;
+
+  window.test = () => {
+    const getter = Object.getOwnPropertyDescriptor(current, "frameElement");
+    console.log(getter.get.call(relevant));
+  };
+
+</script>

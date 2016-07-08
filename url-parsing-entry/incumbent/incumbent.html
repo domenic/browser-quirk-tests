@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Incumbent page</title>
+
+<iframe src="../current/current.html" id="c"></iframe>
+<iframe src="../relevant/relevant.html" id="r"></iframe>
+
+<script>
+  const current = document.querySelector("#c").contentWindow;
+  const relevant = document.querySelector("#r").contentWindow;
+
+  window.testWindowOpen = () => {
+    current.open.call(relevant, "window-open-test.html");
+  };
+
+  window.testPushState = () => {
+    current.history.pushState.call(relevant.history, undefined, "", "window-push-state-test.html");
+    return `Current URL: ${current.document.URL}\n\nRelevant URL: ${relevant.document.URL}`;
+  };
+
+  window.testReplaceState = () => {
+    current.history.replaceState.call(relevant.history, undefined, "", "window-push-state-test.html");
+    return `Current URL: ${current.document.URL}\n\nRelevant URL: ${relevant.document.URL}`;
+  };
+
+  window.testWebSocket = () => {
+    new current.WebSocket(location.href.replace(/^http/, "ws"));
+  };
+
+</script>
