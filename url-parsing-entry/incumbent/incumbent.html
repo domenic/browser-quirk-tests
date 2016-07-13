@@ -27,4 +27,8 @@
     new current.WebSocket(location.href.replace(/^http/, "ws"));
   };
 
+  window.testProtocolHandler = () => {
+    current.navigator.registerProtocolHandler.call(relevant.navigator, "web+testph", "handler.html?s=%s", "Test of protocol handlers");
+  };
+
 </script>

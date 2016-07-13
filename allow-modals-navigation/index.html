@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<iframe src="iframe.html"></iframe>
+
+<script>
+"use strict";
+var iframe = document.querySelector("iframe");
+
+window.onload = function () {
+    var storedFunction = frames[0].test;
+    console.log(storedFunction);
+
+    iframe.onload = function () {
+        console.log("about to call the stored function");
+        storedFunction();
+        console.log("called the stored function");
+    };
+    iframe.src = "about:blank";
+};
+</script>
