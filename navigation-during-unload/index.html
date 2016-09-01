@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script src="https://w3c-test.org/resources/testharness.js"></script>
+<script src="https://w3c-test.org/resources/testharnessreport.js"></script>
+
+<iframe id="i" src="a.html"></iframe>
+
+<!-- a timeout indicates that setting i.contentWindow.location.hash (a second navigation) aborted the first navigation,
+    and so it stayed on a.html and finishedLoading was never called -->
+
+<script>
+var test = async_test('Tests that a hash navigation in the unload handler will not block the initial navigation');
+window.onload = function() {
+    var i = document.querySelector('#i');
+
+    i.contentWindow.onunload = function() {
+        i.contentWindow.location.hash = '#hash';
+    };
+
+    window.finishedLoading = test.step_func_done(function () {
+        assert_equals(i.contentWindow.location.pathname, '/b.html');
+        assert_equals(i.contentWindow.location.hash, '');
+    });
+
+    i.contentWindow.location.href = 'b.html';
+};
+</script>
